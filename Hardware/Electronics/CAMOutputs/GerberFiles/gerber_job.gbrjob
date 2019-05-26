@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2019-05-25T20:17:15Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.3.2"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.57,
+        "LayerNumber": 2,
+        "Name": {
+            "ProjectId": "Controller V1"
+        },
+        "Owner": "Nander Hokwerda <n.hokwerda@gmail.com>",
+        "Size": {
+            "X": 91.364,
+            "Y": 91.684
+        }
+    }
+}
