@@ -1,0 +1,138 @@
+{
+    "1": {
+        "name":"1 Minute Test",
+        "meat_type": "Beef",
+        "description": "Test for 1 minute timer",
+        "barrel_temp": 115,
+        "meat_temp": 90,
+        "cooking_time": 60
+        },
+	"2": {
+        "name": "Brisket",
+        "meat_type": "Beef",
+        "description": "Time is relevant to thickness of flat area and muscle/fat ratio.\nProbe or skewer should insert with no resistance when brisket is finished.",
+        "barrel_temp": 108,
+        "meat_temp": 88,
+        "cooking_time": 42200
+        },
+    "3": {
+        "name":"Chuck Roast",
+        "meat_type": "Beef",
+        "description": "Cook time varies depending on the thickness of the roast. Time given is for a typical 3-4 lb roast.",
+        "barrel_temp": 108,
+        "meat_temp": 88,
+        "cooking_time": 28800
+        },
+    "4": {
+        "name":"Back Ribs",
+        "meat_type": "Beef",
+        "description": "Cut apart before cooking for best results.",
+        "barrel_temp": 108,
+        "meat_temp": 90,
+        "cooking_time": 14400
+        },
+    "5": {
+        "name":"Short Ribs",
+        "meat_type": "Beef",
+        "description": "",
+        "barrel_temp": 108,
+        "meat_temp": 90,
+        "cooking_time": 21600
+        },
+    "6": {
+        "name":"Beef Country Style Ribs",
+        "meat_type": "Beef",
+        "description": "Done when tender.",
+        "barrel_temp": 108,
+        "meat_temp": 80,
+        "cooking_time": 10800
+        },
+    "7": {
+        "name":"Meatloaf",
+        "meat_type": "Beef",
+        "description": "Cook time depends on thickness of loaf. ",
+        "barrel_temp": 108,
+        "meat_temp": 71,
+        "cooking_time": 10800
+        },
+    "8": {
+        "name":"Burgers",
+        "meat_type": "Beef",
+        "description": "Use 80/20 ground chuck for best results. ",
+        "barrel_temp": 115,
+        "meat_temp": 71,
+        "cooking_time": 3600
+        },
+    "9": {
+        "name":"Steaks",
+        "meat_type": "Beef",
+        "description": "Finish in the smoker or smoke to 75% done then sear on hot grill. Time depends on thickness of steak.",
+        "barrel_temp": 99,
+        "meat_temp": 55,
+        "cooking_time": 2700
+        },
+    "10": {
+        "name":"Pork Butt",
+        "meat_type": "Pork",
+        "description": "",
+        "barrel_temp": 108,
+        "meat_temp": 96,
+        "cooking_time": 43200
+        },
+    "11": {
+        "name":"Baby Back Ribs",
+        "meat_type": "Pork",
+        "description": "",
+        "barrel_temp": 108,
+        "meat_temp": 91,
+        "cooking_time": 18000
+        },
+    "12": {
+        "name":"Spare Ribs",
+        "meat_type": "Pork",
+        "description": "",
+        "barrel_temp": 108,
+        "meat_temp": 91,
+        "cooking_time": 21600
+        },
+    "13": {
+        "name":"Loin",
+        "meat_type": "Pork",
+        "description": "",
+        "barrel_temp": 108,
+        "meat_temp": 63,
+        "cooking_time": 10800
+        },
+    "14": {
+        "name":"Whole Chicken",
+        "meat_type": "Chicken",
+        "description": "",
+        "barrel_temp": 121,
+        "meat_temp": 74,
+        "cooking_time": 10800
+        },
+    "15": {
+        "name":"Chicken Legs",
+        "meat_type": "Chicken",
+        "description": "",
+        "barrel_temp": 121,
+        "meat_temp": 80,
+        "cooking_time": 7200
+        },
+    "16": {
+        "name":"Chicken Wings",
+        "meat_type": "Chicken",
+        "description": "",
+        "barrel_temp": 121,
+        "meat_temp": 80,
+        "cooking_time": 5400
+        },
+    "17": {
+        "name":"Salmon Filet",
+        "meat_type": "Fish",
+        "description": "",
+        "barrel_temp": 105,
+        "meat_temp": 58,
+        "cooking_time": 3600
+        }
+    }

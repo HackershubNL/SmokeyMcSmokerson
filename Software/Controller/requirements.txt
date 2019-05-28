@@ -1,3 +1,5 @@
 Adafruit_GPIO
 simple-pid
 RPi.GPIO
+blynklib
+adafruit-circuitpython-charlcd
