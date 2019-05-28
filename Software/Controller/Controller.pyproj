@@ -4,13 +4,15 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c3c838fc-74dc-4eb4-9ce0-3bce499495e7</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Controller.py</StartupFile>
+    <StartupFile>smokey_mc_smokerson\smokey_mc_smokerson.py</StartupFile>
     <SearchPath>
     </SearchPath>
-    <WorkingDirectory>.</WorkingDirectory>
+    <WorkingDirectory>smokey_mc_smokerson\.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Controller</Name>
     <RootNamespace>Controller</RootNamespace>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,10 +27,30 @@
     <Compile Include="run_tests.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="smokey_mc_smokerson\blynk_interface.py" />
+    <Compile Include="smokey_mc_smokerson\temperature_controller.py" />
+    <Compile Include="smokey_mc_smokerson\globals.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="smokey_mc_smokerson\smokey_mc_smokerson.py" />
+    <Compile Include="smokey_mc_smokerson\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="README.md" />
     <Content Include="requirements.txt" />
     <Content Include="setup.sh" />
+    <Content Include="setup_blynk_server.sh" />
+    <Content Include="smokey_mc_smokerson\sample_config.json" />
+    <Content Include="smokey_mc_smokerson\config.json" />
+    <Content Include="smokey_mc_smokerson\recipes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="smokey_mc_smokerson\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
