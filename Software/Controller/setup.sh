@@ -1,18 +1,12 @@
-sudo apt-get update
-sudo apt-get install build-essential python-dev python-smbus git
+apt-get update
+apt-get install build-essential python3-dev python3-smbus git
 
-sudo pip install -r requirements.txt
+pip3 install -r requirements.txt
 
-git clone https://github.com/tdack/MAX6675.git
+git clone https://github.com/blynkkk/lib-python.git python-blynk
 
-cd MAX6675
+cd python-blynk
 
-sudo python setup.py install
+pip3 install -e .
 
 cd ..
-
-git clone https://github.com/blynkkk/lib-python.git
-
-cd lib-python
-
-sudo pip install -e .

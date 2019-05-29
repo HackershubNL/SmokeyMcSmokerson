@@ -28,6 +28,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="smokey_mc_smokerson\blynk_interface.py" />
+    <Compile Include="smokey_mc_smokerson\MAX6675.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="smokey_mc_smokerson\temperature_controller.py" />
     <Compile Include="smokey_mc_smokerson\globals.py">
       <SubType>Code</SubType>

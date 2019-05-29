@@ -8,15 +8,18 @@ import time
 import sys
 
 def shutdown():
-    print("[+] Shutting Down")
-    sys.exit(0)
+    globals.log('info', 'Stopping Threads...')
+    globals.stop_threads = True
+    globals.log('info', 'Waiting for Threads to Finish...')
+    #sys.exit(0)
 
 def main():
-    print("[+] Starting Smokey Mc Smokerson")
-    blynk_thread = threading.Thread(target=blynk_interface.run_blynk, daemon=True)
+    globals.log('info', 'Starting Smokey Mc Smokerson')
+    blynk_thread = threading.Thread(target=blynk_interface.run_blynk)
     blynk_thread.start()
-    controller_thread = threading.Thread(target=temperature_controller.run_temperature_controller, daemon=True)
+    controller_thread = threading.Thread(target=temperature_controller.run_temperature_controller)
     controller_thread.start()
+    globals.log('info', 'Smokey Mc Smokerson Started, you can stop it with Ctrl+C')
     
     while True:
         time.sleep(5)

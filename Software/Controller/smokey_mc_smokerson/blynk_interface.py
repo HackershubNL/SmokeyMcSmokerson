@@ -1,5 +1,4 @@
 import blynklib
-import random
 import time
 import blynktimer
 from datetime import datetime
@@ -21,8 +20,6 @@ else:
 timer = blynktimer.Timer()
 
 #Set base strings
-READ_PRINT_MSG = "[READ_VIRTUAL_PIN_EVENT] Pin: V{}"
-WRITE_EVENT_PRINT_MSG = "[WRITE_VIRTUAL_PIN_EVENT] Pin: V{} Value: '{}'"
 recipe_info_string = "Recipe: {}\n\nMeat Type: {}\n\nSmoker Temperature: {}C\n\nTarget Meat Temperature: {}C\n\nCooking Time: {}\n\nInfo:\n{}"
 
 #Set base variable
@@ -33,6 +30,7 @@ init_loop = True
 manual_timer_hours = 0
 manual_timer_minutes = 0
 timer_notification_sent = False
+meat_ready_notification_sent = False
 
 #Set Blynk Vpins
 current_barrel_temp_vpin = config['blynk']['vpins']['current_barrel_temp']['pin']
@@ -88,19 +86,29 @@ def update_ui():
         else:
             message = "Ready"
             if (timer_notification_sent == False):
-                blynk.notify("Food is ready")
+                blynk.notify("Timer Expired")
+                globals.log('debug', 'Blynk - Sent Timer Expired Push Notification')
                 timer_notification_sent = True
         
         blynk.virtual_write(cook_time_remaining_vpin, message)
 
+    #globals.log('debug', 'Blynk - UI Updated')
+
+    if ((globals.target_meat_temp - globals.current_meat_temp) < 1 and meat_ready_notification_sent == False):
+        blynk.notify("Food is Ready!")
+        globals.log('debug', 'Blynk - Sent Food is Ready Push Notification')
+        meat_ready_notification_sent = True
+
 @blynk.handle_event('write V{}'.format(target_barrel_temp_vpin))
 def write_target_barrel_temp_handler(pin, value):
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Target Smoker Temperature Set to: {}'.format(value[0]))
+
     globals.target_barrel_temp = int(value[0])
 
 @blynk.handle_event('write V{}'.format(target_meat_temp_vpin))
 def write_target_meat_temp_handler(pin, value):
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Target Meat Temperature Set to: {}'.format(value[0]))
+
     globals.target_meat_temp = int(value[0])
 
 @blynk.handle_event('write V{}'.format(recipe_selector_vpin))
@@ -108,7 +116,7 @@ def write_recipe_selector_handler(pin, value):
     global selected_profile
     index = value[0]
     selected_profile = index
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Recipe Selector Changed to: {}'.format(value[0]))
 
     blynk.virtual_write(recipe_description_vpin, 'clr')
     blynk.virtual_write(recipe_description_vpin, recipe_info_string.format(cooking_dict[index]['name'], cooking_dict[index]['meat_type'], cooking_dict[index]['barrel_temp'], cooking_dict[index]['meat_temp'], time.strftime('%H:%M:%S', time.gmtime(cooking_dict[index]['cooking_time'])), cooking_dict[index]['description']))
@@ -119,9 +127,8 @@ def write_confirm_recipe_handler(pin, value):
     global cooking_start
     global timer_notification_sent
 
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
-
     if(value[0] == "1"):
+
         index = selected_profile    
         blynk.virtual_write(target_barrel_temp_vpin, cooking_dict[index]['barrel_temp'])
         globals.target_barrel_temp = cooking_dict[index]['barrel_temp']
@@ -134,18 +141,19 @@ def write_confirm_recipe_handler(pin, value):
         cooking_end = datetime.now() + timedelta(seconds=cooking_dict[index]['cooking_time'])
         cooking_start = datetime.now()
         timer_notification_sent = False
+        globals.log('debug', 'Blynk - Recipe Set')
     
 @blynk.handle_event('write V{}'.format(manual_timer_hours_vpin))
 def write_manual_timer_hours_handler(pin, value):
     global manual_timer_hours
     manual_timer_hours = int(value[0])
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Manual Timer Hours Set to: {}'.format(value[0]))
 
 @blynk.handle_event('write V{}'.format(manual_timer_minutes_vpin))
 def write_manual_timer_minutes_handler(pin, value):
     global manual_timer_minutes
     manual_timer_minutes = int(value[0])
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Manual Timer Minutes Set to: {}'.format(value[0]))
 
 @blynk.handle_event('write V{}'.format(set_manual_timer_vpin))
 def write_set_manual_timer_handler(pin, value):
@@ -153,7 +161,7 @@ def write_set_manual_timer_handler(pin, value):
     global cooking_start
     global timer_notification_sent
 
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Manual Timer Set')
     blynk.virtual_write(mode_selector_vpin, '1')
     blynk.virtual_write(status_text_vpin, 'Manual Mode')
 
@@ -163,28 +171,28 @@ def write_set_manual_timer_handler(pin, value):
 
 @blynk.handle_event('write V{}'.format(manual_pid_kp_vpin))
 def write_manual_pid_kp_val_handler(pin, value):
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Manual PID Kp Set to: {}'.format(value[0]))
     globals.manual_pid_kp = float(value[0])
 
 @blynk.handle_event('write V{}'.format(manual_pid_ki_vpin))
 def write_manual_pid_ki_val_handler(pin, value):
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Manual PID Ki Set to: {}'.format(value[0]))
     globals.manual_pid_ki = float(value[0])
 
 @blynk.handle_event('write V{}'.format(manual_pid_kd_vpin))
 def write_manual_pid_KD_val_handler(pin, value):
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
+    globals.log('debug', 'Blynk - Manual PID Kd Set to: {}'.format(value[0]))
     globals.manual_pid_kd = float(value[0])
 
 @blynk.handle_event('write V{}'.format(pid_profile_override_vpin))
 def write_pid_override_handler(pin, value):
-    print(WRITE_EVENT_PRINT_MSG.format(pin, value))
     if (int(value[0]) == 1):
         globals.pid_profile_override = True
+        globals.log('debug', 'Blynk - PID Manual Overrride Turned On')
 
     elif (int(value[0]) == 0):
         globals.pid_profile_override = False
-
+        globals.log('debug', 'Blynk - PID Manual Override Turned Off')
 
 
 @blynk.handle_event("connect")
@@ -199,9 +207,13 @@ def connect_handler():
 
 def run_blynk():
     global init_loop
-    while True:
+    globals.log('info', 'Blynk Interface Started')
+    #keep looping until instructed otherwise
+    while (globals.stop_threads == False):
         blynk.run()
+        timer.run()
         if (init_loop == True):
+            #on the first loop, set baseline variables
             blynk.virtual_write(status_text_vpin, 'Warming up')
             blynk.virtual_write(cook_time_remaining_vpin, '-')
             blynk.virtual_write(mode_selector_vpin, '1')
@@ -219,4 +231,9 @@ def run_blynk():
 
             init_loop = False
 
-        timer.run()
+        
+    globals.log('info', 'Blynk Interface Stopped')
+
+
+if __name__ == "__main__":
+    globals.log('error', 'Start the Blynk Interface with ./smokey_mc_smokerson.py')

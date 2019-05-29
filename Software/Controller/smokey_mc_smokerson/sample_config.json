@@ -74,7 +74,6 @@
 			"manual_pid_kd": {
 				"pin": 22
 			}
-
 		}
 	},
 	"pin_outs": {
@@ -90,7 +89,7 @@
 	},
 	"pid_tunings": {
 		"conservative": {
-			"kp": 1,
+			"kp": 0.8,
 			"ki": 0.1,
 			"kd": 0.5
 		},
@@ -99,5 +98,11 @@
 			"ki": 0.2,
 			"kd": 1
 		}
+	},
+	"logging": {
+		"debug_mode": true,
+		"log_to_console": true,
+		"log_to_file": true,
+		"log_file_name": "smokey.log"
 	}
 }
