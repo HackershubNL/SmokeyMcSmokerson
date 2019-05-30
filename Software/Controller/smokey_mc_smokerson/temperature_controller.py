@@ -209,6 +209,11 @@ def run_temperature_controller():
         #sleep for a second
         time.sleep(1)
 
+    if (simulated_mode == False):
+        pwm.stop(fan1_pin)
+        if (fan2_pin):
+            pwm.stop(fan2_pin)
+
     globals.log('info', 'Temperature Controller Stopped')
 
 if __name__ == "__main__":
