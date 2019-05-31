@@ -2,3 +2,4 @@
 .git
 config.json
 smokey.log
+__pycache__

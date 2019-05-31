@@ -30,7 +30,7 @@ def load_config():
 
 def load_recipes():
     global cooking_dict
-    recipe_file = open('recipes.txt')
+    recipe_file = open('recipes.json')
     cooking_dict = json.load(recipe_file)
     recipe_file.close()
 

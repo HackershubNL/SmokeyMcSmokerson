@@ -23,7 +23,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Controller.py" />
     <Compile Include="run_tests.py">
       <SubType>Code</SubType>
     </Compile>
@@ -44,6 +43,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="blynk_app.png" />
     <Content Include="blynk_server" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
@@ -51,7 +51,7 @@
     <Content Include="setup_blynk_server.sh" />
     <Content Include="smokey_mc_smokerson\sample_config.json" />
     <Content Include="smokey_mc_smokerson\config.json" />
-    <Content Include="smokey_mc_smokerson\recipes.txt" />
+    <Content Include="smokey_mc_smokerson\recipes.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="smokey_mc_smokerson\" />
