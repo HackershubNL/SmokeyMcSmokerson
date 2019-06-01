@@ -38,9 +38,6 @@
     <Compile Include="smokey_mc_smokerson\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="test.py">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="blynk_app.png" />
@@ -51,7 +48,6 @@
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
     <Content Include="setup.sh" />
-    <Content Include="setup_blynk_server.sh" />
     <Content Include="smokey_mc_smokerson\sample_config.json" />
     <Content Include="smokey_mc_smokerson\config.json" />
     <Content Include="smokey_mc_smokerson\recipes.json" />
