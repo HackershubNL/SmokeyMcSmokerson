@@ -310,6 +310,27 @@
 <wire x1="-7.95" y1="-2.7" x2="1.85" y2="-2.7" width="0.2" layer="21"/>
 <wire x1="1.85" y1="-2.7" x2="1.85" y2="0" width="0.2" layer="21"/>
 </package>
+<package name="47053-1000">
+<description>&lt;b&gt;47053-1000&lt;/b&gt;&lt;br&gt;
+</description>
+<pad name="1" x="1.57" y="2.54" drill="1.17" diameter="1.77"/>
+<pad name="2" x="4.11" y="2.54" drill="1.17" diameter="1.77"/>
+<pad name="3" x="6.65" y="2.54" drill="1.17" diameter="1.77"/>
+<pad name="4" x="9.19" y="2.54" drill="1.17" diameter="1.77"/>
+<hole x="4.11" y="0.38" drill="1.3"/>
+<text x="4.817" y="3.936" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="4.817" y="3.936" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="0" y1="5.84" x2="10.576" y2="5.84" width="0.254" layer="51"/>
+<wire x1="10.576" y1="5.84" x2="10.576" y2="0" width="0.254" layer="51"/>
+<wire x1="10.576" y1="0" x2="0" y2="0" width="0.254" layer="51"/>
+<wire x1="0" y1="0" x2="0" y2="5.84" width="0.254" layer="51"/>
+<wire x1="0" y1="0" x2="0" y2="5.84" width="0.254" layer="21"/>
+<wire x1="0" y1="5.84" x2="10.576" y2="5.84" width="0.254" layer="21"/>
+<wire x1="10.576" y1="5.84" x2="10.576" y2="0" width="0.254" layer="21"/>
+<wire x1="10.576" y1="0" x2="5.288" y2="0" width="0.254" layer="21"/>
+<wire x1="0" y1="0" x2="2.897" y2="0" width="0.254" layer="21"/>
+<circle x="-1.012" y="2.645" radius="0.175" width="0.6" layer="25"/>
+</package>
 </packages>
 <symbols>
 <symbol name="RASPBERRY_PI_ZERO_W_(V1.3)">
@@ -406,6 +427,18 @@
 <text x="16.51" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
 <pin name="1" x="0" y="0" length="middle"/>
 <pin name="2" x="0" y="-2.54" length="middle"/>
+</symbol>
+<symbol name="47053-1000">
+<wire x1="5.08" y1="2.54" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-5.08" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<text x="16.51" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="16.51" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="1" x="0" y="0" length="middle"/>
+<pin name="3" x="0" y="-2.54" length="middle"/>
+<pin name="2" x="20.32" y="0" length="middle" rot="R180"/>
+<pin name="4" x="20.32" y="-2.54" length="middle" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -561,6 +594,33 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/0039281023.pd
 <attribute name="MANUFACTURER_PART_NUMBER" value="0039281023" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="N/A" constant="no"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=N%2FA" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="47053-1000" prefix="J">
+<description>&lt;b&gt;MOLEX - 47053-1000 - HEADER, 4POS, 1ROW, 2.54MM&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/47053-1000.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="47053-1000" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="47053-1000">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="MOLEX - 47053-1000 - HEADER, 4POS, 1ROW, 2.54MM" constant="no"/>
+<attribute name="HEIGHT" value="mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Molex" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="47053-1000" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="538-47053-1000" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=538-47053-1000" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -4289,100 +4349,6 @@ The Slot footprint only works if the mill layer is transmitted to the PCB fab ho
 </connects>
 <technologies>
 <technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="con-wago-500" urn="urn:adsk.eagle:library:195">
-<description>&lt;b&gt;Wago Screw Clamps&lt;/b&gt;&lt;p&gt;
-Grid 5.00 mm&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="W237-103" urn="urn:adsk.eagle:footprint:10678/1" library_version="1">
-<description>&lt;b&gt;WAGO SCREW CLAMP&lt;/b&gt;</description>
-<wire x1="4.093" y1="-2.255" x2="5.897" y2="-0.299" width="0.254" layer="51"/>
-<wire x1="-0.911" y1="-2.331" x2="0.994" y2="-0.299" width="0.254" layer="51"/>
-<wire x1="-5.991" y1="-2.306" x2="-3.984" y2="-0.299" width="0.254" layer="51"/>
-<wire x1="-7.489" y1="-5.481" x2="7.497" y2="-5.481" width="0.1524" layer="21"/>
-<wire x1="7.497" y1="3.714" x2="7.497" y2="3.511" width="0.1524" layer="21"/>
-<wire x1="7.497" y1="3.714" x2="-7.489" y2="3.714" width="0.1524" layer="21"/>
-<wire x1="-7.489" y1="-5.481" x2="-7.489" y2="-3.093" width="0.1524" layer="21"/>
-<wire x1="-7.489" y1="-3.093" x2="-5.889" y2="-3.093" width="0.1524" layer="21"/>
-<wire x1="-5.889" y1="-3.093" x2="-4.111" y2="-3.093" width="0.1524" layer="51"/>
-<wire x1="-4.111" y1="-3.093" x2="-0.885" y2="-3.093" width="0.1524" layer="21"/>
-<wire x1="0.893" y1="-3.093" x2="4.119" y2="-3.093" width="0.1524" layer="21"/>
-<wire x1="5.897" y1="-3.093" x2="7.497" y2="-3.093" width="0.1524" layer="21"/>
-<wire x1="-7.489" y1="-3.093" x2="-7.489" y2="3.511" width="0.1524" layer="21"/>
-<wire x1="7.497" y1="-3.093" x2="7.497" y2="-5.481" width="0.1524" layer="21"/>
-<wire x1="7.497" y1="3.511" x2="-7.489" y2="3.511" width="0.1524" layer="21"/>
-<wire x1="7.497" y1="3.511" x2="7.497" y2="-3.093" width="0.1524" layer="21"/>
-<wire x1="-7.489" y1="3.511" x2="-7.489" y2="3.714" width="0.1524" layer="21"/>
-<wire x1="-0.885" y1="-3.093" x2="0.893" y2="-3.093" width="0.1524" layer="51"/>
-<wire x1="4.119" y1="-3.093" x2="5.897" y2="-3.093" width="0.1524" layer="51"/>
-<circle x="-5" y="-1.29" radius="1.4986" width="0.1524" layer="51"/>
-<circle x="5.0076" y="-1.29" radius="1.4986" width="0.1524" layer="51"/>
-<circle x="-5" y="2.1898" radius="0.508" width="0.1524" layer="21"/>
-<circle x="5.0076" y="2.1898" radius="0.508" width="0.1524" layer="21"/>
-<circle x="0.0038" y="-1.29" radius="1.4986" width="0.1524" layer="51"/>
-<circle x="0.0038" y="2.1898" radius="0.508" width="0.1524" layer="21"/>
-<pad name="1" x="-5" y="-1.29" drill="1.1938" shape="long" rot="R90"/>
-<pad name="2" x="0" y="-1.29" drill="1.1938" shape="long" rot="R90"/>
-<pad name="3" x="5" y="-1.29" drill="1.1938" shape="long" rot="R90"/>
-<text x="-6.905" y="0.615" size="1.27" layer="51" ratio="10">1</text>
-<text x="-1.8504" y="0.5642" size="1.27" layer="51" ratio="10">2</text>
-<text x="3.1534" y="0.615" size="1.27" layer="51" ratio="10">3</text>
-<text x="-5.3048" y="-4.9476" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-5.6858" y="-7.4622" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-</package>
-</packages>
-<packages3d>
-<package3d name="W237-103" urn="urn:adsk.eagle:package:10691/1" type="box" library_version="1">
-<description>WAGO SCREW CLAMP</description>
-<packageinstances>
-<packageinstance name="W237-103"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="KL" urn="urn:adsk.eagle:symbol:10675/1" library_version="1">
-<circle x="1.27" y="0" radius="1.27" width="0.254" layer="94"/>
-<text x="0" y="0.889" size="1.778" layer="95" rot="R180">&gt;NAME</text>
-<pin name="KL" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-<symbol name="KL+V" urn="urn:adsk.eagle:symbol:10673/1" library_version="1">
-<circle x="1.27" y="0" radius="1.27" width="0.254" layer="94"/>
-<text x="-2.54" y="-3.683" size="1.778" layer="96">&gt;VALUE</text>
-<text x="0" y="0.889" size="1.778" layer="95" rot="R180">&gt;NAME</text>
-<pin name="KL" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="W237-103" urn="urn:adsk.eagle:component:10707/1" prefix="X" uservalue="yes" library_version="1">
-<description>&lt;b&gt;WAGO SCREW CLAMP&lt;/b&gt;</description>
-<gates>
-<gate name="-1" symbol="KL" x="0" y="5.08" addlevel="always"/>
-<gate name="-2" symbol="KL" x="0" y="0" addlevel="always"/>
-<gate name="-3" symbol="KL+V" x="0" y="-5.08" addlevel="always"/>
-</gates>
-<devices>
-<device name="" package="W237-103">
-<connects>
-<connect gate="-1" pin="KL" pad="1"/>
-<connect gate="-2" pin="KL" pad="2"/>
-<connect gate="-3" pin="KL" pad="3"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:10691/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="237-103" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="18M7116" constant="no"/>
-</technology>
 </technologies>
 </device>
 </devices>
@@ -12093,10 +12059,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="GND10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="J1" library="SparkFun-Connectors" deviceset="POWER_JACK" device=""/>
 <part name="GND11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="FAN1" library="con-wago-500" library_urn="urn:adsk.eagle:library:195" deviceset="W237-103" device="" package3d_urn="urn:adsk.eagle:package:10691/1"/>
-<part name="FAN2" library="con-wago-500" library_urn="urn:adsk.eagle:library:195" deviceset="W237-103" device="" package3d_urn="urn:adsk.eagle:package:10691/1"/>
-<part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -12116,6 +12078,10 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="GND22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GPIO" library="SparkFun-Connectors" deviceset="CONN_06" device="SILK_FEMALE_PTH"/>
 <part name="GND23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="FAN_1" library="SamacSys_Parts" deviceset="47053-1000" device=""/>
+<part name="FAN_2" library="SamacSys_Parts" deviceset="47053-1000" device=""/>
+<part name="GND8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12192,32 +12158,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <instance part="GND11" gate="1" x="-78.74" y="144.78" smashed="yes">
 <attribute name="VALUE" x="-81.28" y="142.24" size="1.778" layer="96"/>
 </instance>
-<instance part="FAN1" gate="-1" x="-101.6" y="55.88" smashed="yes">
-<attribute name="NAME" x="-101.6" y="56.769" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="FAN1" gate="-2" x="-101.6" y="50.8" smashed="yes">
-<attribute name="NAME" x="-101.6" y="51.689" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="FAN1" gate="-3" x="-101.6" y="45.72" smashed="yes">
-<attribute name="VALUE" x="-104.14" y="42.037" size="1.778" layer="96"/>
-<attribute name="NAME" x="-101.6" y="46.609" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="FAN2" gate="-1" x="-101.6" y="38.1" smashed="yes">
-<attribute name="NAME" x="-101.6" y="38.989" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="FAN2" gate="-2" x="-101.6" y="33.02" smashed="yes">
-<attribute name="NAME" x="-101.6" y="33.909" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="FAN2" gate="-3" x="-101.6" y="27.94" smashed="yes">
-<attribute name="VALUE" x="-104.14" y="24.257" size="1.778" layer="96"/>
-<attribute name="NAME" x="-101.6" y="28.829" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="GND8" gate="1" x="-91.44" y="25.4" smashed="yes">
-<attribute name="VALUE" x="-93.98" y="22.86" size="1.778" layer="96"/>
-</instance>
-<instance part="GND9" gate="1" x="-91.44" y="43.18" smashed="yes">
-<attribute name="VALUE" x="-93.98" y="40.64" size="1.778" layer="96"/>
-</instance>
 <instance part="GND12" gate="1" x="48.26" y="43.18" smashed="yes">
 <attribute name="VALUE" x="45.72" y="40.64" size="1.778" layer="96"/>
 </instance>
@@ -12281,6 +12221,20 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </instance>
 <instance part="GND23" gate="1" x="48.26" y="17.78" smashed="yes">
 <attribute name="VALUE" x="45.72" y="15.24" size="1.778" layer="96"/>
+</instance>
+<instance part="FAN_1" gate="G$1" x="-86.36" y="58.42" smashed="yes" rot="R180">
+<attribute name="NAME" x="-92.71" y="66.04" size="1.778" layer="95" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="-92.71" y="68.58" size="1.778" layer="96" rot="R180" align="center-left"/>
+</instance>
+<instance part="FAN_2" gate="G$1" x="-86.36" y="25.4" smashed="yes" rot="R180">
+<attribute name="NAME" x="-92.71" y="33.02" size="1.778" layer="95" rot="R180" align="center-left"/>
+<attribute name="VALUE" x="-92.71" y="35.56" size="1.778" layer="96" rot="R180" align="center-left"/>
+</instance>
+<instance part="GND8" gate="1" x="-81.28" y="50.8" smashed="yes">
+<attribute name="VALUE" x="-83.82" y="48.26" size="1.778" layer="96"/>
+</instance>
+<instance part="GND9" gate="1" x="-81.28" y="17.78" smashed="yes">
+<attribute name="VALUE" x="-83.82" y="15.24" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -12508,16 +12462,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <pinref part="GND11" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="FAN2" gate="-3" pin="KL"/>
-<wire x1="-96.52" y1="27.94" x2="-91.44" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="GND8" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="FAN1" gate="-3" pin="KL"/>
-<wire x1="-96.52" y1="45.72" x2="-91.44" y2="45.72" width="0.1524" layer="91"/>
-<pinref part="GND9" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="GND13" gate="1" pin="GND"/>
 <wire x1="-45.72" y1="147.32" x2="-45.72" y2="142.24" width="0.1524" layer="91"/>
@@ -12590,6 +12534,18 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <wire x1="40.64" y1="25.4" x2="48.26" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="25.4" x2="48.26" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="GND23" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="FAN_1" gate="G$1" pin="1"/>
+<wire x1="-86.36" y1="58.42" x2="-81.28" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="-81.28" y1="58.42" x2="-81.28" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="GND8" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="FAN_2" gate="G$1" pin="1"/>
+<wire x1="-86.36" y1="25.4" x2="-81.28" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-81.28" y1="25.4" x2="-81.28" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="GND9" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="FAN1_PWM" class="0">
@@ -12665,15 +12621,6 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <label x="38.1" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="FAN1_PWM_OUT" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="1Y"/>
-<wire x1="-66.04" y1="45.72" x2="-83.82" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="-83.82" y1="45.72" x2="-83.82" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="FAN1" gate="-2" pin="KL"/>
-<wire x1="-96.52" y1="50.8" x2="-83.82" y2="50.8" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="+12V" class="0">
 <segment>
 <pinref part="PS1" gate="G$1" pin="+VIN"/>
@@ -12687,23 +12634,17 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <wire x1="-63.5" y1="162.56" x2="-63.5" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="FAN1" gate="-1" pin="KL"/>
-<wire x1="-96.52" y1="55.88" x2="-91.44" y2="55.88" width="0.1524" layer="91"/>
-<label x="-91.44" y="55.88" size="1.778" layer="95"/>
+<pinref part="FAN_1" gate="G$1" pin="2"/>
+<wire x1="-106.68" y1="58.42" x2="-106.68" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="-106.68" y1="50.8" x2="-101.6" y2="50.8" width="0.1524" layer="91"/>
+<label x="-101.6" y="50.8" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="FAN2" gate="-1" pin="KL"/>
-<wire x1="-96.52" y1="38.1" x2="-91.44" y2="38.1" width="0.1524" layer="91"/>
-<label x="-91.44" y="38.1" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="FAN2_PWM_OUT" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="2Y"/>
-<wire x1="-66.04" y1="38.1" x2="-83.82" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="-83.82" y1="38.1" x2="-83.82" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="FAN2" gate="-2" pin="KL"/>
-<wire x1="-83.82" y1="33.02" x2="-96.52" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="FAN_2" gate="G$1" pin="2"/>
+<wire x1="-106.68" y1="25.4" x2="-109.22" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="-109.22" y1="25.4" x2="-109.22" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="-109.22" y1="17.78" x2="-101.6" y2="17.78" width="0.1524" layer="91"/>
+<label x="-101.6" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VIN" class="0">
@@ -12786,6 +12727,25 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <pinref part="GPIO" gate="G$1" pin="5"/>
 <wire x1="30.48" y1="12.7" x2="40.64" y2="12.7" width="0.1524" layer="91"/>
 <label x="40.64" y="12.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FAN2_PWM_OUT" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="2Y"/>
+<wire x1="-66.04" y1="38.1" x2="-109.22" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="-109.22" y1="38.1" x2="-109.22" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="FAN_2" gate="G$1" pin="4"/>
+<wire x1="-109.22" y1="27.94" x2="-106.68" y2="27.94" width="0.1524" layer="91"/>
+<label x="-101.6" y="40.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="FAN!_PWM_OUT" class="0">
+<segment>
+<pinref part="FAN_1" gate="G$1" pin="4"/>
+<wire x1="-109.22" y1="45.72" x2="-109.22" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="-109.22" y1="60.96" x2="-106.68" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="1Y"/>
+<wire x1="-66.04" y1="45.72" x2="-109.22" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
