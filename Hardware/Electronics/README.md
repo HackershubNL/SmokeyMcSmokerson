@@ -3,7 +3,8 @@
 
 ## Intro
 
-This is revision number one, already some improvement points have been identified such as using standard fan connectors instead of screw terminals and additional smoothing capacitors need to be included.
+This is revision number one, already some improvement points have been identified such as using standard fan connectors instead of screw terminals and additional smoothing capacitors need to be included.  
+1/6/2019 - Latest .sch and .brd files have 4 pin fan headers instead of the screw terminals.
 
 ## Design Decisions
 
@@ -19,7 +20,6 @@ The fan which will be used is the Sanyo Denki 9GA0412P6G001*, this is chosen due
 ## Bill of Materials  
 
 Farnell shopping cart csv is included but the following items are not on the list:  
-- V7805-1000 Regulator (Farnell doesn't carry this item)
 - Raspberry Pi + SD card (Assuming you have one)
 - Thermocouple boards and probes, see link to Aliexpress below
 - Fans
@@ -29,7 +29,7 @@ And some items have a minimum order quantity so you will get more than required.
 ### Main board
 
 - 5x 5-pin female headers
-- 2x 3-pin screw terminals 
+- 2x 3-pin screw terminals - In latest .sch and .brd files these are switched for 4 pin headers so you can use a PC fan without having to cut the wire. The fan I chose comes with leaded connectors.
 - 1x 6-pin male header
 - 1x 4-pin male header
 - 1x 2-pin male header
@@ -37,7 +37,7 @@ And some items have a minimum order quantity so you will get more than required.
 - 1x 5.5mm Barrel Jack 
 - 1x 14-pin DIP socket
 - 1x 40-pin female GPIO header  
-- 1x V7805-1000 Regulator, this is the 1A version, might need the 2A version (V7805-2000)
+- 1x RECOM R-78B5.0-2.0 5V 2A DC/DC Converter - You can use alternatives to this such as the V7805-2000 or any other TO220 Switching Regulators. Opted for the 2A version due to minimal price difference and it's nice to have an overhead.
 - 1x 10uF capacitor  
 - 1x 22uF capacitor  
 - 1x 220 ohm resistor  

@@ -4,8 +4,12 @@
 ## Introduction
 
 This was inspired by the following projects:  
-https://github.com/willblev/SmokeyTheBarrel
-https://github.com/jerrychangusa/ES96-Smart-Smoker
+https://github.com/willblev/SmokeyTheBarrel  
+https://github.com/jerrychangusa/ES96-Smart-Smoker  
+
+Other sites and pages that were used in the process of making this project:  
+https://amazingribs.com/  
+https://genuineideas.com/ArticlesIndex/thecrutch.html
 
 ## Getting Started
 

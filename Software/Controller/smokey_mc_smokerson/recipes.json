@@ -1,13 +1,5 @@
 {
-    "1": {
-        "name":"1 Minute Test",
-        "meat_type": "Beef",
-        "description": "Test for 1 minute timer",
-        "barrel_temp": 115,
-        "meat_temp": 90,
-        "cooking_time": 60
-        },
-	"2": {
+	"1": {
         "name": "Brisket",
         "meat_type": "Beef",
         "description": "Time is relevant to thickness of flat area and muscle/fat ratio.\nProbe or skewer should insert with no resistance when brisket is finished.",
@@ -15,7 +7,7 @@
         "meat_temp": 88,
         "cooking_time": 42200
         },
-    "3": {
+    "2": {
         "name":"Chuck Roast",
         "meat_type": "Beef",
         "description": "Cook time varies depending on the thickness of the roast. Time given is for a typical 3-4 lb roast.",
@@ -23,7 +15,7 @@
         "meat_temp": 88,
         "cooking_time": 28800
         },
-    "4": {
+    "3": {
         "name":"Back Ribs",
         "meat_type": "Beef",
         "description": "Cut apart before cooking for best results.",
@@ -31,7 +23,7 @@
         "meat_temp": 90,
         "cooking_time": 14400
         },
-    "5": {
+    "4": {
         "name":"Short Ribs",
         "meat_type": "Beef",
         "description": "",
@@ -39,7 +31,7 @@
         "meat_temp": 90,
         "cooking_time": 21600
         },
-    "6": {
+    "5": {
         "name":"Beef Country Style Ribs",
         "meat_type": "Beef",
         "description": "Done when tender.",
@@ -47,7 +39,7 @@
         "meat_temp": 80,
         "cooking_time": 10800
         },
-    "7": {
+    "6": {
         "name":"Meatloaf",
         "meat_type": "Beef",
         "description": "Cook time depends on thickness of loaf. ",
@@ -55,7 +47,7 @@
         "meat_temp": 71,
         "cooking_time": 10800
         },
-    "8": {
+    "7": {
         "name":"Burgers",
         "meat_type": "Beef",
         "description": "Use 80/20 ground chuck for best results. ",
@@ -63,7 +55,7 @@
         "meat_temp": 71,
         "cooking_time": 3600
         },
-    "9": {
+    "8": {
         "name":"Steaks",
         "meat_type": "Beef",
         "description": "Finish in the smoker or smoke to 75% done then sear on hot grill. Time depends on thickness of steak.",
@@ -71,13 +63,21 @@
         "meat_temp": 55,
         "cooking_time": 2700
         },
-    "10": {
-        "name":"Pork Butt",
+    "9": {
+        "name":"Pulled Pork - Stage 1",
         "meat_type": "Pork",
-        "description": "",
+        "description": "This is the first stage of making Pulled Pork. Cook the shoulder naked to 65 degrees Celcius and then tightly wrap it in tin foil. Afterwards start the stage 2 recipe.",
+        "barrel_temp": 108,
+        "meat_temp": 65,
+        "cooking_time": 12600
+        },
+	"10": {
+        "name":"Pulled Pork - Stage 2",
+        "meat_type": "Pork",
+        "description": "This is the second stage of making Pulled Pork. Tightly wrap the shoulder in tin foil and cook it to 95 degrees Celcius. When done you can cook it for about another 30 minutes naked on 108 degrees Ceclius heat to create a bark.",
         "barrel_temp": 108,
         "meat_temp": 96,
-        "cooking_time": 43200
+        "cooking_time": 10800
         },
     "11": {
         "name":"Baby Back Ribs",
