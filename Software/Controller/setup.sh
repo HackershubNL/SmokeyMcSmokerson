@@ -20,7 +20,11 @@ wget "https://github.com/blynkkk/blynk-server/releases/download/v0.41.6/server-0
 
 mkdir /opt/blynkserver/data
 
+mkdir /var/log/blynkserver
+
 cp blynk_server /etc/init.d
+
+cp blynk_server.properties /opt/blynkserver
 
 chmod 755 /etc/init.d/blynk_server
 
@@ -28,5 +32,5 @@ update-rc.d blynk_server defaults
 
 /etc/init.d/blynk_server start
 
-echo "Default credentials to log into the local Blynk server are: admin@blynk.cc : admin . To change this log into the web UI on port 9443"
+echo "Default credentials to log into the local Blynk server are: admin@smokey.test : admin . To change this log into the web UI on port 9443"
 

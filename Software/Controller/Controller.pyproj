@@ -45,6 +45,9 @@
   <ItemGroup>
     <Content Include="blynk_app.png" />
     <Content Include="blynk_server" />
+    <Content Include="blynk_server.properties">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
     <Content Include="setup.sh" />
