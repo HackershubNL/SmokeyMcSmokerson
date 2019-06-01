@@ -23,7 +23,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="run_tests.py">
+    <Compile Include="smokey_mc_smokerson\run_tests.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="smokey_mc_smokerson\blynk_interface.py" />

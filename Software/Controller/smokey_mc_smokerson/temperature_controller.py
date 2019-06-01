@@ -42,7 +42,7 @@ conservative_kd = config['pid_tunings']['conservative']['kd']
 def set_fan_speed(pwm, fan_speed):
     if (simulated_mode == False):
         pwm.set_duty_cycle(fan1_pin, fan_speed)
-        if (fan2):
+        if (fan2_pin):
             pwm.set_duty_cycle(fan2_pin, fan_speed)
 
     globals.fan_speed = fan_speed

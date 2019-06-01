@@ -55,7 +55,7 @@ def initialize_globals():
     target_meat_temp = 80
     current_barrel_temp = 20
     current_meat_temp = 20
-    fan_speed = 10
+    fan_speed = 0
     current_pid_kp = 1
     current_pid_ki = 1
     current_pid_kd = 1

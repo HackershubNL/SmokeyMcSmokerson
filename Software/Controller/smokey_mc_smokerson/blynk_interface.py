@@ -69,6 +69,7 @@ def strfdelta(tdelta, fmt):
 @timer.register(interval=5, run_once=False)
 def update_ui():
     global timer_notification_sent
+    global meat_ready_notification_sent
 
     blynk.virtual_write(current_barrel_temp_vpin, int(globals.current_barrel_temp))
     blynk.virtual_write(current_meat_temp_vpin, int(globals.current_meat_temp))
@@ -92,7 +93,6 @@ def update_ui():
         
         blynk.virtual_write(cook_time_remaining_vpin, message)
 
-    #globals.log('debug', 'Blynk - UI Updated')
 
     if ((globals.target_meat_temp - globals.current_meat_temp) < 1 and meat_ready_notification_sent == False):
         blynk.notify("Food is Ready!")
@@ -107,8 +107,9 @@ def write_target_barrel_temp_handler(pin, value):
 
 @blynk.handle_event('write V{}'.format(target_meat_temp_vpin))
 def write_target_meat_temp_handler(pin, value):
+    global meat_ready_notification_sent
     globals.log('debug', 'Blynk - Target Meat Temperature Set to: {}'.format(value[0]))
-
+    meat_ready_notification_sent = False
     globals.target_meat_temp = int(value[0])
 
 @blynk.handle_event('write V{}'.format(recipe_selector_vpin))
@@ -126,22 +127,26 @@ def write_confirm_recipe_handler(pin, value):
     global cooking_end
     global cooking_start
     global timer_notification_sent
+    global meat_ready_notification_sent
 
     if(value[0] == "1"):
+        index = selected_profile
+        if (cooking_dict[index]['recipe_type'] == "cooking"):   
+            blynk.virtual_write(target_barrel_temp_vpin, cooking_dict[index]['barrel_temp'])
+            globals.target_barrel_temp = cooking_dict[index]['barrel_temp']
+            blynk.virtual_write(target_meat_temp_vpin, cooking_dict[index]['meat_temp'])
+            globals.target_meat_temp = cooking_dict[index]['meat_temp']
+            blynk.virtual_write(status_text_vpin, 'Cooking: {} - {}'.format(cooking_dict[index]['meat_type'], cooking_dict[index]['name']))
+            blynk.virtual_write(recipe_description_vpin, '\n\n[+] Auto Mode Set')
+            blynk.virtual_write(mode_selector_vpin, '2')
 
-        index = selected_profile    
-        blynk.virtual_write(target_barrel_temp_vpin, cooking_dict[index]['barrel_temp'])
-        globals.target_barrel_temp = cooking_dict[index]['barrel_temp']
-        blynk.virtual_write(target_meat_temp_vpin, cooking_dict[index]['meat_temp'])
-        globals.target_meat_temp = cooking_dict[index]['meat_temp']
-        blynk.virtual_write(status_text_vpin, 'Cooking: {} - {}'.format(cooking_dict[index]['meat_type'], cooking_dict[index]['name']))
-        blynk.virtual_write(recipe_description_vpin, '\n\n[+] Auto Mode Set')
-        blynk.virtual_write(mode_selector_vpin, '2')
-
-        cooking_end = datetime.now() + timedelta(seconds=cooking_dict[index]['cooking_time'])
-        cooking_start = datetime.now()
-        timer_notification_sent = False
-        globals.log('debug', 'Blynk - Recipe Set')
+            cooking_end = datetime.now() + timedelta(seconds=cooking_dict[index]['cooking_time'])
+            cooking_start = datetime.now()
+            timer_notification_sent = False
+            meat_ready_notification_sent = False
+            globals.log('debug', 'Blynk - Recipe Set')
+        else:
+            globals.log('debug', 'Blynk - Tried to set a recipe heading or preparation recipe')
     
 @blynk.handle_event('write V{}'.format(manual_timer_hours_vpin))
 def write_manual_timer_hours_handler(pin, value):
@@ -161,13 +166,15 @@ def write_set_manual_timer_handler(pin, value):
     global cooking_start
     global timer_notification_sent
 
-    globals.log('debug', 'Blynk - Manual Timer Set')
-    blynk.virtual_write(mode_selector_vpin, '1')
-    blynk.virtual_write(status_text_vpin, 'Manual Mode')
+    if(value[0] == "1"):
 
-    cooking_end = datetime.now() + timedelta(hours=manual_timer_hours, minutes=manual_timer_minutes)
-    cooking_start = datetime.now()
-    timer_notification_sent = False
+        globals.log('debug', 'Blynk - Manual Timer Set')
+        blynk.virtual_write(mode_selector_vpin, '1')
+        blynk.virtual_write(status_text_vpin, 'Manual Mode')
+
+        cooking_end = datetime.now() + timedelta(hours=manual_timer_hours, minutes=manual_timer_minutes)
+        cooking_start = datetime.now()
+        timer_notification_sent = False
 
 @blynk.handle_event('write V{}'.format(manual_pid_kp_vpin))
 def write_manual_pid_kp_val_handler(pin, value):
@@ -228,6 +235,8 @@ def run_blynk():
             blynk.virtual_write(manual_pid_ki_vpin, globals.manual_pid_ki)
             blynk.virtual_write(manual_pid_kd_vpin, globals.manual_pid_kd)
             blynk.virtual_write(pid_profile_override_vpin, 0)
+            blynk.virtual_write(recipe_selector_vpin, 1)
+            blynk.virtual_write(recipe_description_vpin, 'clr')
 
             init_loop = False
 

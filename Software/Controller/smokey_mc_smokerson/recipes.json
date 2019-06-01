@@ -1,138 +1,227 @@
 {
 	"1": {
+        "name": "-- Cooking Recipes --",
+		"recipe_type": "heading",
+        "meat_type": "",
+        "description": "",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
+        },
+	"2": {
         "name": "Brisket",
+		"recipe_type": "cooking",
         "meat_type": "Beef",
         "description": "Time is relevant to thickness of flat area and muscle/fat ratio.\nProbe or skewer should insert with no resistance when brisket is finished.",
         "barrel_temp": 108,
         "meat_temp": 88,
         "cooking_time": 42200
         },
-    "2": {
+    "3": {
         "name":"Chuck Roast",
+		"recipe_type": "cooking",
         "meat_type": "Beef",
         "description": "Cook time varies depending on the thickness of the roast. Time given is for a typical 3-4 lb roast.",
         "barrel_temp": 108,
         "meat_temp": 88,
         "cooking_time": 28800
         },
-    "3": {
+    "4": {
         "name":"Back Ribs",
+		"recipe_type": "cooking",
         "meat_type": "Beef",
         "description": "Cut apart before cooking for best results.",
         "barrel_temp": 108,
         "meat_temp": 90,
         "cooking_time": 14400
         },
-    "4": {
+    "5": {
         "name":"Short Ribs",
+		"recipe_type": "cooking",
         "meat_type": "Beef",
         "description": "",
         "barrel_temp": 108,
         "meat_temp": 90,
         "cooking_time": 21600
         },
-    "5": {
+    "6": {
         "name":"Beef Country Style Ribs",
+		"recipe_type": "cooking",
         "meat_type": "Beef",
         "description": "Done when tender.",
         "barrel_temp": 108,
         "meat_temp": 80,
         "cooking_time": 10800
         },
-    "6": {
+    "7": {
         "name":"Meatloaf",
+		"recipe_type": "cooking",
         "meat_type": "Beef",
         "description": "Cook time depends on thickness of loaf. ",
         "barrel_temp": 108,
         "meat_temp": 71,
         "cooking_time": 10800
         },
-    "7": {
+    "8": {
         "name":"Burgers",
+		"recipe_type": "cooking",
         "meat_type": "Beef",
         "description": "Use 80/20 ground chuck for best results. ",
         "barrel_temp": 115,
         "meat_temp": 71,
         "cooking_time": 3600
         },
-    "8": {
+    "9": {
         "name":"Steaks",
+		"recipe_type": "cooking",
         "meat_type": "Beef",
         "description": "Finish in the smoker or smoke to 75% done then sear on hot grill. Time depends on thickness of steak.",
         "barrel_temp": 99,
         "meat_temp": 55,
         "cooking_time": 2700
         },
-    "9": {
+    "10": {
         "name":"Pulled Pork - Stage 1",
+		"recipe_type": "cooking",
         "meat_type": "Pork",
         "description": "This is the first stage of making Pulled Pork. Cook the shoulder naked to 65 degrees Celcius and then tightly wrap it in tin foil. Afterwards start the stage 2 recipe.",
         "barrel_temp": 108,
         "meat_temp": 65,
         "cooking_time": 12600
         },
-	"10": {
+	"11": {
         "name":"Pulled Pork - Stage 2",
+		"recipe_type": "cooking",
         "meat_type": "Pork",
         "description": "This is the second stage of making Pulled Pork. Tightly wrap the shoulder in tin foil and cook it to 95 degrees Celcius. When done you can cook it for about another 30 minutes naked on 108 degrees Ceclius heat to create a bark.",
         "barrel_temp": 108,
         "meat_temp": 96,
         "cooking_time": 10800
         },
-    "11": {
+    "12": {
         "name":"Baby Back Ribs",
+		"recipe_type": "cooking",
         "meat_type": "Pork",
         "description": "",
         "barrel_temp": 108,
         "meat_temp": 91,
         "cooking_time": 18000
         },
-    "12": {
+    "13": {
         "name":"Spare Ribs",
+		"recipe_type": "cooking",
         "meat_type": "Pork",
         "description": "",
         "barrel_temp": 108,
         "meat_temp": 91,
         "cooking_time": 21600
         },
-    "13": {
+    "14": {
         "name":"Loin",
+		"recipe_type": "cooking",
         "meat_type": "Pork",
         "description": "",
         "barrel_temp": 108,
         "meat_temp": 63,
         "cooking_time": 10800
         },
-    "14": {
+    "15": {
         "name":"Whole Chicken",
+		"recipe_type": "cooking",
         "meat_type": "Chicken",
         "description": "",
         "barrel_temp": 121,
         "meat_temp": 74,
         "cooking_time": 10800
         },
-    "15": {
+    "16": {
         "name":"Chicken Legs",
+		"recipe_type": "cooking",
         "meat_type": "Chicken",
         "description": "",
         "barrel_temp": 121,
         "meat_temp": 80,
         "cooking_time": 7200
         },
-    "16": {
+    "17": {
         "name":"Chicken Wings",
+		"recipe_type": "cooking",
         "meat_type": "Chicken",
         "description": "",
         "barrel_temp": 121,
         "meat_temp": 80,
         "cooking_time": 5400
         },
-    "17": {
+    "18": {
         "name":"Salmon Filet",
+		"recipe_type": "cooking",
         "meat_type": "Fish",
         "description": "",
         "barrel_temp": 105,
         "meat_temp": 58,
         "cooking_time": 3600
+        },
+    "19": {
+        "name":"-- Preparation Recipes --",
+		"recipe_type": "heading",
+        "meat_type": "",
+        "description": "",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
+        },
+    "20": {
+        "name":"Memphis Dust Rub",
+		"recipe_type": "preparation",
+        "meat_type": "Pork",
+        "description": "3/4 cup firmly packed dark brown sugar\n3/4 cup white sugar\n1/2 cup American paprika\n1/4 cup garlic powder\n2 tablespoons ground black pepper\n2 tablespoons ground ginger powder\n2 tablespoons onion powder\n2 teaspoons rosemary powder",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
+        },
+    "21": {
+        "name":"Simon and Garfunkel Spice Rub For Poultry",
+		"recipe_type": "preparation",
+        "meat_type": "Chicken",
+        "description": "1 tablespoon dried crushed parsley\n2 tablespoons dried crushed sage\n1 tablespoon dried crushed rosemary\n1 tablespoon dried crushed thyme\n1 tablespoon dried crushed oregano\n1 tablespoon dried crushed basil\n1 tablespoon dried crushed bay leaf\n1 tablespoon ground black pepper\n1 tablespoon sugar",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
+        },
+    "22": {
+        "name":"Memphis Dry Rub",
+		"recipe_type": "preparation",
+        "meat_type": "Pork",
+        "description": "8 tablespoons American paprika\n4 tablespoons powdered garlic\n4 tablespoons mild chili powder\n3 tablespoons ground black pepper\n4 teaspoons whole yellow mustard seed\n1 tablespoon crushed celery seed\n1 tablespoon whole celery seed\n1 tablespoon dried crushed oregano\n1 tablespoon dried crushed thyme\n1 tablespoon whole allspice seeds\n1 teaspoon ground allspice\n1 tablespoon whole coriander seed\n1 teaspoon ground coriander\n1 teaspoon Accent",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
+        },
+    "23": {
+        "name":"Creole Seasoning Rub",
+		"recipe_type": "preparation",
+        "meat_type": "Chicken",
+        "description": "1 tablespoon American style paprika\n2 teaspoons ground black pepper\n2 teaspoons cayenne pepper\n2 teaspoons garlic powder\n2 teaspoons onion powder\n2 teaspoons dried thyme leaves\n1 teaspoon dried oregano leaves\n1 teaspoon sugar",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
+        },
+    "24": {
+        "name":"Cajun Seasoning Rub",
+		"recipe_type": "preparation",
+        "meat_type": "Chicken",
+        "description": "24 bay leaves\n3 tablespoons whole black peppercorns\n3 tablespoons dried rosemary\n1 tablespoon dried oregano\n1 tablespoon celery seeds\n1 tablespoon caraway seeds\n1 tablespoon chili flakes\n1/2 cup American paprika\n1/4 cup ancho powder\n2 tablespoons garlic powder\n2 tablespoons onion powder\n2 tablespoons sugar\n2 tablespoons cayenne powder\n1 tablespoon mustard powder\n3/4 teaspoon ground mace\n3/4 teaspoon grated or ground allspice",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
+        },
+    "25": {
+        "name":"Fish Rub",
+		"recipe_type": "preparation",
+        "meat_type": "Fish",
+        "description": "1 tablespoon dried chives\n1 tablespoon dried tarragon\n1 tablespoon dried parsley\n1 tablespoon dried chervil\n1 tablespoon freshly ground dried green peppercorns\n1 tablespoon dried lemon peel, ground\n1 teaspoon garlic powder",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
         }
     }
