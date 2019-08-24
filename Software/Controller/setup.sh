@@ -1,8 +1,8 @@
 apt-get update
 
-apt-get dist-upgrade
+apt-get -y dist-upgrade
 
-apt-get install build-essential python3-dev python3-smbus git openjdk-8-jdk python3-pip
+apt-get -y install build-essential python3-dev python3-smbus git openjdk-8-jdk python3-pip
 
 pip3 install -r requirements.txt
 

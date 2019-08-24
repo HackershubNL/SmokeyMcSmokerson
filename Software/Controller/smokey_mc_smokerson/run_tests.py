@@ -1,8 +1,8 @@
 import time
-from simple_pid import PID
 import globals
 import MAX6675
 import Adafruit_GPIO as GPIO
+import Adafruit_GPIO.PWM as PWMLib
 
 try:
     platform = GPIO.Platform.platform_detect()
@@ -11,6 +11,7 @@ except:
     print('[+] Platform is not a Raspberry Pi, exiting...')
     exit()
 
+config = globals.config
 
 def test_thermocouples():
     counter = 0
@@ -33,19 +34,19 @@ def test_thermocouples():
     while (counter != 5):
 
         TC1_temp = TC1.readTempC()
-        print("Thermocouple 1 temperature: " + TC1_temp + " Celcius")
-        time.sleep(1000)
+        print("Thermocouple 1 temperature: {} Celcius".format(TC1_temp))
+        time.sleep(2)
         TC2_temp = TC2.readTempC()
-        print("Thermocouple 2 temperature: " + TC2_temp + " Celcius")
-        time.sleep(1000)
+        print("Thermocouple 2 temperature: {} Celcius".format(TC2_temp))
+        time.sleep(2)
         TC3_temp = TC3.readTempC()
-        print("Thermocouple 3 temperature: " + TC3_temp + " Celcius")
-        time.sleep(1000)
+        print("Thermocouple 3 temperature: {} Celcius".format(TC3_temp))
+        time.sleep(2)
         TC4_temp = TC4.readTempC()
-        print("Thermocouple 4 temperature: " + TC4_temp + " Celcius")
-        time.sleep(1000)
+        print("Thermocouple 4 temperature: {} Celcius".format(TC4_temp))
+        time.sleep(2)
         TC5_temp = TC5.readTempC()
-        print("Thermocouple 5 temperature: " + TC5_temp + " Celcius")
+        print("Thermocouple 5 temperature: {} Celcius".format(TC5_temp))
         print("")
         print("-----")
         print("")
@@ -59,7 +60,7 @@ def test_fan():
     fan2_frequency = 25000
     fan2_pin = config['pin_outs']['fan_2']
 
-    pwm = GPIO.PWM.get_platform_pwm()
+    pwm = PWMLib.get_platform_pwm()
 
     pwm.start(fan1_pin, globals.fan_speed, fan1_frequency)
     if(fan2_pin) :
@@ -67,15 +68,15 @@ def test_fan():
 
     while(globals.fan_speed != 100):
         print("[+] Fan Speed at {}%".format(globals.fan_speed))
-        time.sleep(1)
-        globals.fan_speed += 1
+        time.sleep(5)
+        globals.fan_speed += 10
         pwm.set_duty_cycle(fan1_pin, globals.fan_speed)
         if (fan2_pin):
             pwm.set_duty_cycle(fan2_pin, globals.fan_speed)
 
-    pwm.set_duty_cycle(fan1_pin, 0)
+    pwm.stop(fan1_pin)
     if (fan2_pin):
-        pwm.set_duty_cycle(fan2_pin, 0)
+        pwm.stop(fan2_pin)
 
     
 if __name__ == "__main__":

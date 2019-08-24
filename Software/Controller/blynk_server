@@ -23,6 +23,7 @@ case "$1" in
   stop)
     echo "Stopping Blynk Server"
     # kill application you want to stop
+	# For some reason, some OS'es act differently and you might need to remove the | tail -n 1
     PID = ps -ef | grep 'blynk' | grep -v grep | awk '{print $2}' | tail -n 1
     kill $PID
     ;;

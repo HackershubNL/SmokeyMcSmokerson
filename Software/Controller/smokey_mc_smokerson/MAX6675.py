@@ -75,5 +75,5 @@ class MAX6675(object):
         if raw is None or len(raw) != 2:
             raise RuntimeError('Did not read expected number of bytes from device!')
         value = raw[0] << 8 | raw[1]
-        globals.log('debug', 'MAX6675 - {}'.format('Raw value: 0x{0:08X}'.format(value & 0xFFFFFFFF)))
+        #globals.log('debug', 'MAX6675 - {}'.format('Raw value: 0x{0:08X}'.format(value & 0xFFFFFFFF)))
         return value

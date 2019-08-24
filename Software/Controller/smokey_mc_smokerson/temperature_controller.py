@@ -3,6 +3,7 @@ from simple_pid import PID
 import globals
 import MAX6675
 import Adafruit_GPIO as GPIO
+import Adafruit_GPIO.PWM as PWMLib
 
 try:
     platform = GPIO.Platform.platform_detect()
@@ -120,7 +121,7 @@ def run_temperature_controller():
 
     if (simulated_mode == False):
         #Initialize Fan
-        pwm = GPIO.PWM.get_platform_pwm()
+        pwm = PWMLib.get_platform_pwm()
         pwm.start(fan1_pin, globals.fan_speed, fan1_frequency)
 
         #if a second fan is defined, initialize that as well
@@ -137,13 +138,13 @@ def run_temperature_controller():
         #Initialize Temperatures
         #read sensors
         TC1_temp = TC1.readTempC()
-        time.sleep(100)
+        time.sleep(0.1)
         TC2_temp = TC2.readTempC()
-        time.sleep(100)
+        time.sleep(0.1)
         TC3_temp = TC3.readTempC()
-        time.sleep(100)
+        time.sleep(0.1)
         TC4_temp = TC4.readTempC()
-        time.sleep(100)
+        time.sleep(0.1)
         TC5_temp = TC5.readTempC()
 
     else:
@@ -171,13 +172,13 @@ def run_temperature_controller():
         #read sensors and if in simulated mode, calculate based on fan speed
         if (simulated_mode == False):
             TC1_temp = TC1.readTempC()
-            time.sleep(100)
+            time.sleep(0.1)
             TC2_temp = TC2.readTempC()
-            time.sleep(100)
+            time.sleep(0.1)
             TC3_temp = TC3.readTempC()
-            time.sleep(100)
+            time.sleep(0.1)
             TC4_temp = TC4.readTempC()
-            time.sleep(100)
+            time.sleep(0.1)
             TC5_temp = TC5.readTempC()
         else:
             simulated_temp = simulate_temperature(TC1_temp)

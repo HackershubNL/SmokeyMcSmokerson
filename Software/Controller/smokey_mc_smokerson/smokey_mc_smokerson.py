@@ -1,6 +1,7 @@
 import globals
 import blynk_interface
 import temperature_controller
+import web_interface
 import blynktimer
 import random
 import threading
@@ -11,7 +12,6 @@ def shutdown():
     globals.log('info', 'Stopping Threads...')
     globals.stop_threads = True
     globals.log('info', 'Waiting for Threads to Finish...')
-    #sys.exit(0)
 
 def main():
     globals.log('info', 'Starting Smokey Mc Smokerson')
@@ -19,6 +19,8 @@ def main():
     blynk_thread.start()
     controller_thread = threading.Thread(target=temperature_controller.run_temperature_controller)
     controller_thread.start()
+    webui_thread = threading.Thread(target=web_interface.run_web_interface)
+    webui_thread.start()
     globals.log('info', 'Smokey Mc Smokerson Started, you can stop it with Ctrl+C')
     
     while True:

@@ -84,7 +84,7 @@
 		"thermocouple_3_cs": 12,
 		"thermocouple_4_cs": 7,
 		"thermocouple_5_cs": 24,
-		"fan_1": 12,
+		"fan_1": 13,
 		"fan_2": null
 	},
 	"pid_tunings": {
