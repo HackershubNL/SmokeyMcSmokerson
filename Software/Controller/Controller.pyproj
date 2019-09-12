@@ -38,6 +38,9 @@
     <Compile Include="smokey_mc_smokerson\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="smokey_service">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="blynk_app.png" />

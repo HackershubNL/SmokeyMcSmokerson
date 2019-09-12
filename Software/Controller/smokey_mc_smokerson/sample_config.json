@@ -73,6 +73,9 @@
 			},
 			"manual_pid_kd": {
 				"pin": 22
+			},
+			"system_shutdown": {
+				"pin": 23
 			}
 		}
 	},
@@ -97,7 +100,9 @@
 			"kp": 8,
 			"ki": 0.2,
 			"kd": 1
-		}
+		},
+		"temperature_offset": 45,
+		"_comment" : "The offset is the temperature differential between the center of the grill and the edge of the barrel where the sensors are located."
 	},
 	"logging": {
 		"debug_mode": true,

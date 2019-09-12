@@ -32,5 +32,16 @@ update-rc.d blynk_server defaults
 
 /etc/init.d/blynk_server start
 
-echo "Default credentials to log into the local Blynk server are: admin@smokey.test : admin . To change this log into the web UI on port 9443"
+cp smokey_service /etc/init.d
+
+chmod 755 /etc/init.d/smokey_service
+
+update-rc.d smokey_service defaults
+
+cp smokey_mc_smokerson/sample_config.json smokey_mc_smokerson/config.json
+
+echo "Default credentials to log into the local Blynk server are: admin@smokey.test : admin . To change this log into the web UI on port 9443 (https://[device IP]:9443)"
+echo "Edit the config.json file in the smokey_mc_smokerson folder to set the correct Blynk server settings, then start the Smokey service with 'sudo /etc/init.d/smokey_service start'"
+
+
 

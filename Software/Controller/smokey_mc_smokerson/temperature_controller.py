@@ -42,6 +42,9 @@ conservative_kp = config['pid_tunings']['conservative']['kp']
 conservative_ki = config['pid_tunings']['conservative']['ki']
 conservative_kd = config['pid_tunings']['conservative']['kd']
 
+#Temperature Offset
+temperature_offset = config['pid_tunings']['temperature_offset']
+
 def set_fan_speed(pwm, fan_speed):
     if (simulated_mode == False):
         pwm.set_duty_cycle(fan1_pin, fan_speed)
@@ -188,8 +191,8 @@ def run_temperature_controller():
             TC5_temp += 0.01
 
         #Calculations
-        temp_weighted_avg = ((TC1_temp + TC2_temp + TC3_temp + TC4_temp) / 4) # + 45 From SmokeyTheBarrel: temperature compensation between outside and center of the barrel
-        temp_weighted_avg_last=(2 * temp_weighted_avg_last + temp_weighted_avg) / 3
+        temp_weighted_avg = ((TC1_temp + TC2_temp + TC3_temp + TC4_temp) / 4) + temperature_offset # + 45 From SmokeyTheBarrel: temperature compensation between outside and center of the barrel
+        temp_weighted_avg_last = (2 * temp_weighted_avg_last + temp_weighted_avg) / 3
         globals.current_barrel_temp = temp_weighted_avg_last
         temperature_gap = globals.target_barrel_temp - temp_weighted_avg_last
         globals.current_temp_gap = temperature_gap

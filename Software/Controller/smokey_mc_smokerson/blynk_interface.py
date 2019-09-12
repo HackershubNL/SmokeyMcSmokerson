@@ -205,7 +205,7 @@ def write_pid_override_handler(pin, value):
 
 @blynk.handle_event('write V{}'.format(system_shutdown_vpin))
 def write_system_shutdown_handler(pin, value):
-    if(value[0] == "1"):
+    if(int(value[0]) == 1):
         globals.log('debug', 'Blynk - System Shutdown')
         os.system('sudo poweroff')
 
