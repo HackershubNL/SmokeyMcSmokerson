@@ -2,12 +2,14 @@ import time
 from simple_pid import PID
 import globals
 import MAX6675
-import Adafruit_GPIO as GPIO
-import Adafruit_GPIO.PWM as PWMLib
+import Adafruit_GPIO
+import Adafruit_GPIO.PWM as PWM
+import Adafruit_GPIO.GPIO as GPIO
 
 try:
-    platform = GPIO.Platform.platform_detect()
+    platform = Adafruit_GPIO.Platform.platform_detect()
     assert(platform == 1)
+    gpio_platform = GPIO.get_platform_gpio()
     simulated_mode = False
 except:
     simulated_mode = True
@@ -121,7 +123,7 @@ def run_temperature_controller():
 
     if (simulated_mode == False):
         #Initialize Fan
-        pwm = PWMLib.get_platform_pwm()
+        pwm = PWM.get_platform_pwm()
         pwm.start(fan1_pin, globals.fan_speed, fan1_frequency)
 
         #if a second fan is defined, initialize that as well

@@ -16,7 +16,7 @@ cd ..
 
 mkdir /opt/blynkserver
 
-wget "https://github.com/blynkkk/blynk-server/releases/download/v0.41.6/server-0.41.6-java8.jar" -P /opt/blynkserver
+wget "https://github.com/blynkkk/blynk-server/releases/download/v0.41.10/server-0.41.10-java8.jar" -P /opt/blynkserver
 
 mkdir /opt/blynkserver/data
 

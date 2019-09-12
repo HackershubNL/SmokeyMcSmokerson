@@ -4,6 +4,7 @@ import blynktimer
 from datetime import datetime
 from datetime import timedelta  
 import globals
+import os
 
 #Set Globals
 config = globals.config
@@ -56,6 +57,7 @@ manual_pid_kp_vpin = config['blynk']['vpins']['manual_pid_kp']['pin']
 manual_pid_ki_vpin = config['blynk']['vpins']['manual_pid_ki']['pin']
 manual_pid_kd_vpin = config['blynk']['vpins']['manual_pid_kd']['pin']
 pid_profile_override_vpin = config['blynk']['vpins']['pid_profile_override']['pin']
+system_shutdown_vpin = config['blynk']['vpins']['system_shutdown']['pin']
 
 def strfdelta(tdelta, fmt):
     d = {"days": tdelta.days}
@@ -201,6 +203,11 @@ def write_pid_override_handler(pin, value):
         globals.pid_profile_override = False
         globals.log('debug', 'Blynk - PID Manual Override Turned Off')
 
+@blynk.handle_event('write V{}'.format(system_shutdown_vpin))
+def write_system_shutdown_handler(pin, value):
+    if(value[0] == "1"):
+        globals.log('debug', 'Blynk - System Shutdown')
+        os.system('sudo poweroff')
 
 @blynk.handle_event("connect")
 def connect_handler():
