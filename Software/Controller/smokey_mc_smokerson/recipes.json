@@ -48,7 +48,7 @@
         "name":"Beef Country Style Ribs",
 		"recipe_type": "cooking",
         "meat_type": "Beef",
-        "description": "Done when tender.",
+        "description": "Dry brine for at least 1 hour, preferably the night before. Done when tender.",
         "barrel_temp": 108,
         "meat_temp": 80,
         "cooking_time": 10800
@@ -220,6 +220,15 @@
 		"recipe_type": "preparation",
         "meat_type": "Fish",
         "description": "1 tablespoon dried chives\n1 tablespoon dried tarragon\n1 tablespoon dried parsley\n1 tablespoon dried chervil\n1 tablespoon freshly ground dried green peppercorns\n1 tablespoon dried lemon peel, ground\n1 teaspoon garlic powder",
+        "barrel_temp": 0,
+        "meat_temp": 0,
+        "cooking_time": 0
+        },
+    "26": {
+        "name":"Big Bad Beef Rub",
+		"recipe_type": "preparation",
+        "meat_type": "Beef",
+        "description": "3 tablespoon coarsely ground black pepper\n1 tablespoon granulated white sugar\n1 tablespoon onion powder\n2 teaspoons mustard powder\n2 teaspoons garlic powder\n2 teaspoons American chili or ancho powder\n1 teaspoon chipotle or cayenne powder",
         "barrel_temp": 0,
         "meat_temp": 0,
         "cooking_time": 0
