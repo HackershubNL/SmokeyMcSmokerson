@@ -42,6 +42,7 @@ cp smokey_mc_smokerson/sample_config.json smokey_mc_smokerson/config.json
 
 echo "Default credentials to log into the local Blynk server are: admin@smokey.test : admin . To change this log into the web UI on port 9443 (https://[device IP]:9443)"
 echo "Edit the config.json file in the smokey_mc_smokerson folder to set the correct Blynk server settings, then start the Smokey service with 'sudo /etc/init.d/smokey_service start'"
+echo "To use the local server instance, use IP 127.0.0.1 and port 8080. To use the public Blynk servers set the host to an empty string. Please note that the app will not 'fit' in the free tier"
 
 
 

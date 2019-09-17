@@ -39,9 +39,9 @@
         "name":"Short Ribs",
 		"recipe_type": "cooking",
         "meat_type": "Beef",
-        "description": "",
+        "description": "Dry brine for at least 1 hour, preferably the night before. Use Big Bad Beef Rub. Done when tender.",
         "barrel_temp": 108,
-        "meat_temp": 90,
+        "meat_temp": 95,
         "cooking_time": 21600
         },
     "6": {

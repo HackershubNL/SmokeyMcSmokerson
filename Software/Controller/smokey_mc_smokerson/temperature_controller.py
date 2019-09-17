@@ -122,7 +122,7 @@ def run_temperature_controller():
     globals.log('info', 'Temperature Controller Started')
 
     #Initialize Pid
-    pid = PID(Kp=aggressive_kp, Ki=aggressive_ki, Kd=aggressive_kd, setpoint=globals.target_barrel_temp, output_limits=(0, 100), auto_mode=True, proportional_on_measurement=False)
+    pid = PID(Kp=aggressive_kp, Ki=aggressive_ki, Kd=aggressive_kd, setpoint=globals.target_barrel_temp, output_limits=(0, 100), auto_mode=True, proportional_on_measurement=True) # See documentation on proportial on measurement flag
 
     if (simulated_mode == False):
         #Initialize Fan
