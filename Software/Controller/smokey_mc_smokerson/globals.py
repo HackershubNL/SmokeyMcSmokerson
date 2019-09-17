@@ -50,6 +50,7 @@ def initialize_globals():
     global manual_pid_ki
     global manual_pid_kd
     global stop_threads
+    global lid_open
 
     target_barrel_temp = 120
     target_meat_temp = 80
@@ -66,6 +67,7 @@ def initialize_globals():
     manual_pid_ki = config['pid_tunings']['aggressive']['ki']
     manual_pid_kd = config['pid_tunings']['aggressive']['kd']
     stop_threads = False
+    lid_open = False
 
 load_config()
 load_recipes()

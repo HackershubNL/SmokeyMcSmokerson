@@ -25,6 +25,7 @@ TC2_CS_pin = config['pin_outs']['thermocouple_2_cs']
 TC3_CS_pin = config['pin_outs']['thermocouple_3_cs']
 TC4_CS_pin = config['pin_outs']['thermocouple_4_cs']
 TC5_CS_pin = config['pin_outs']['thermocouple_5_cs']
+lid_switch_pin = config['pin_outs']['lid_switch']
 
 #Fan variables
 fan1_frequency = 25000
@@ -130,8 +131,12 @@ def run_temperature_controller():
         pwm.start(fan1_pin, globals.fan_speed, fan1_frequency)
 
         #if a second fan is defined, initialize that as well
-        if(fan2_pin) :
+        if(fan2_pin):
             pwm.start(fan2_pin, globals.fan_speed, fan2_frequency)
+
+        #if lid switch pin is defined, set it up as input
+        if(lid_switch_pin):
+            gpio_platform.setup(lid_switch_pin, GPIO.IN)
 
         #initialize thermocouples
         TC1 = MAX6675.MAX6675(CLK_pin, TC1_CS_pin, DO_pin)
@@ -169,6 +174,7 @@ def run_temperature_controller():
 
     #keep looping until instructed otherwise
     while(globals.stop_threads == False):
+
         #update setpoint if it differs
         if (pid.setpoint != globals.target_barrel_temp):
             globals.log('debug', 'Temperature Controller - PID Setpoint changed to: {}'.format(globals.target_barrel_temp))
@@ -210,7 +216,20 @@ def run_temperature_controller():
 
         #calculate new fan speed and set the fan speed
         pid_output = pid(temp_weighted_avg_last)
-        set_fan_speed(pwm, pid_output)
+
+        #if lid switch pin is defined, check its state. If the lid is open, kill the fan. If the pin is not defined set the speed as required
+        if (lid_switch_pin):
+            lid_state = gpio_platform.input(lid_switch_pin)
+
+            if (lid_state == GPIO.HIGH):
+                set_fan_speed(pwm, 0)
+                globals.lid_open = True
+            else:
+                set_fan_speed(pwm, pid_output)
+                globals.lid_open = False
+
+        else:
+            set_fan_speed(pwm, pid_output)
 
         #sleep for a second
         time.sleep(1)

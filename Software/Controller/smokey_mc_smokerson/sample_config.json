@@ -88,7 +88,8 @@
 		"thermocouple_4_cs": 7,
 		"thermocouple_5_cs": 24,
 		"fan_1": 13,
-		"fan_2": null
+		"fan_2": null,
+		"lid_switch": 22
 	},
 	"pid_tunings": {
 		"conservative": {
