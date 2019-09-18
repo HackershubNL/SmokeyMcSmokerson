@@ -68,6 +68,7 @@ def initialize_globals():
     manual_pid_kd = config['pid_tunings']['aggressive']['kd']
     stop_threads = False
     lid_open = False
+    calibrate_temperature = False
 
 load_config()
 load_recipes()

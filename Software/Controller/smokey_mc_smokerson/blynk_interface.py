@@ -58,6 +58,7 @@ manual_pid_ki_vpin = config['blynk']['vpins']['manual_pid_ki']['pin']
 manual_pid_kd_vpin = config['blynk']['vpins']['manual_pid_kd']['pin']
 pid_profile_override_vpin = config['blynk']['vpins']['pid_profile_override']['pin']
 system_shutdown_vpin = config['blynk']['vpins']['system_shutdown']['pin']
+calibrate_temperature_vpin = config['blynk']['vpins']['calibrate_temperature']['pin']
 
 def strfdelta(tdelta, fmt):
     d = {"days": tdelta.days}
@@ -209,6 +210,14 @@ def write_system_shutdown_handler(pin, value):
         globals.log('debug', 'Blynk - System Shutdown')
         os.system('sudo poweroff')
 
+@blynk.handle_event('write V{}'.format(calibrate_temperature_vpin))
+def write_calibrate_temperature_handler(pin, value):
+    if(int(value[0]) == 1):
+        globals.log('debug', 'Blynk - Temperature Calibration Started')
+        globals.calibrate_temperature = True
+        blynk.notify("Temperature Calibration Started. This will take about 3 minutes")
+
+       
 @blynk.handle_event("connect")
 def connect_handler():
     menu_list = []

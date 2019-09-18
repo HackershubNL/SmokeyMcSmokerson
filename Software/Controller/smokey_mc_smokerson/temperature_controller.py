@@ -43,8 +43,37 @@ conservative_kp = config['pid_tunings']['conservative']['kp']
 conservative_ki = config['pid_tunings']['conservative']['ki']
 conservative_kd = config['pid_tunings']['conservative']['kd']
 
-#Temperature Offset
-temperature_offset = config['pid_tunings']['temperature_offset']
+def calibrate_temperature_offset(TC1, TC2, TC3, TC4, TC5, pwm):
+    
+    globals.log('debug', 'Temperature Calibration - Running fan at 10% for a minute')
+
+    #Run the fan at 10% for a minute
+    set_fan_speed(pwm, 10)
+    time.sleep(60)
+
+    globals.log('debug', 'Temperature Calibration - Soaking for 2 minutes')
+    #Kill the fan and soak for 2 minutes
+    set_fan_speed(pwm, 0)
+    time.sleep(120)
+
+    #Measure temps
+    TC1_temp = TC1.readTempC()
+    time.sleep(0.1)
+    TC2_temp = TC2.readTempC()
+    time.sleep(0.1)
+    TC3_temp = TC3.readTempC()
+    time.sleep(0.1)
+    TC4_temp = TC4.readTempC()
+    time.sleep(0.1)
+    TC5_temp = TC5.readTempC()
+
+    #Average out the outside sensors and calculate the difference
+    outside_temp_average = ((TC1_temp + TC2_temp + TC3_temp + TC4_temp) / 4)
+    temperature_offset = TC5_temp - outside_temp_average
+
+    globals.log('info', 'Temperature Calibration - Average edge temperature: {}, Inside temperature: {}, Temperature offset set at: {}'.format(outside_temp_average, TC5_temp, temperature_offset))
+
+    return temperature_offset
 
 def set_fan_speed(pwm, fan_speed):
     if (simulated_mode == False):
@@ -124,6 +153,9 @@ def run_temperature_controller():
 
     #Initialize Pid
     pid = PID(Kp=aggressive_kp, Ki=aggressive_ki, Kd=aggressive_kd, setpoint=globals.target_barrel_temp, output_limits=(0, 100), auto_mode=True, proportional_on_measurement=True) # See documentation on proportial on measurement flag
+
+    #Initialize temperature offset
+    temperature_offset = 0
 
     if (simulated_mode == False):
         #Initialize Fan
@@ -214,10 +246,7 @@ def run_temperature_controller():
         else:
             set_pid_profile(pid, 'aggressive')
 
-        #calculate new fan speed and set the fan speed
-        pid_output = pid(temp_weighted_avg_last)
-
-        #if lid switch pin is defined, check its state. If the lid is open, kill the fan. If the pin is not defined set the speed as required
+        #if lid switch pin is defined, check its state. If the lid is open, kill the fan. If the pin is not defined calculate and set the speed as required
         if (lid_switch_pin):
             lid_state = gpio_platform.input(lid_switch_pin)
 
@@ -225,14 +254,36 @@ def run_temperature_controller():
                 set_fan_speed(pwm, 0)
                 globals.lid_open = True
             else:
+                #calculate new fan speed and set the fan speed
+                #only do the pid calculation when the lid is closed to prevent confusing the pid
+                pid_output = pid(temp_weighted_avg_last)
                 set_fan_speed(pwm, pid_output)
                 globals.lid_open = False
 
         else:
+            #calculate new fan speed and set the fan speed
+            pid_output = pid(temp_weighted_avg_last)
             set_fan_speed(pwm, pid_output)
+
+        #if the calibrate option has been selected
+        if (globals.calibrate_temperature == True):
+
+            globals.log('info', 'Temperature Calibration Started, stopping PID controller')
+
+            #stop the pid
+            pid.auto_mode = False
+
+            #run the calibrate function
+            temperature_offset = calibrate_temperature_offset(TC1, TC2, TC3, TC4, TC5, pwm)
+
+            #reenable the pid
+            pid.auto_mode = True
+            globals.log('info', 'Temperature Calibration Finished, PID controller started')
 
         #sleep for a second
         time.sleep(1)
+
+        ###### End of loop
 
     if (simulated_mode == False):
         pwm.stop(fan1_pin)
