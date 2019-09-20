@@ -6,6 +6,7 @@ import random
 import threading
 import time
 import sys
+import signal
 
 def shutdown():
     globals.log('info', 'Stopping Threads...')
@@ -18,6 +19,7 @@ def main():
     blynk_thread.start()
     controller_thread = threading.Thread(target=temperature_controller.run_temperature_controller)
     controller_thread.start()
+    signal.signal(signal.SIGINT, shutdown)
     globals.log('info', 'Smokey Mc Smokerson Started, you can stop it with Ctrl+C')
     
     while True:
