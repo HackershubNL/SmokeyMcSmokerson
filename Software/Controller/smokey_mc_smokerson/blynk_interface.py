@@ -214,10 +214,15 @@ def write_system_shutdown_handler(pin, value):
 
 @blynk.handle_event('write V{}'.format(calibrate_temperature_vpin))
 def write_calibrate_temperature_handler(pin, value):
+    global cooking_end
+    global timer_notification_sent
+
     if(int(value[0]) == 1):
         globals.log('debug', 'Blynk - Temperature Calibration Started')
         globals.calibrate_temperature = True
-        blynk.notify("Temperature Calibration Started. This will take about 3 minutes")
+        cooking_end = datetime.now() + timedelta(minutes=3)
+        timer_notification_sent = False
+        blynk.notify("Temperature Calibration Started. This will take about 3 minutes. The timer will go off when ready.")
 
        
 @blynk.handle_event("connect")

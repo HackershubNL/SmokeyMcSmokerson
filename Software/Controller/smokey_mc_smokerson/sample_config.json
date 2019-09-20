@@ -79,6 +79,9 @@
 			},
 			"calibrate_temperature": {
 				"pin": 24
+			},
+			"temperature_offset": {
+				"pin": 25
 			}
 		}
 	},
