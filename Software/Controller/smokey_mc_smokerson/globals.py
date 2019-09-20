@@ -51,6 +51,7 @@ def initialize_globals():
     global manual_pid_kd
     global stop_threads
     global lid_open
+    global calibrate_temperature
 
     target_barrel_temp = 120
     target_meat_temp = 80

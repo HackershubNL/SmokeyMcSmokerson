@@ -73,6 +73,8 @@ def calibrate_temperature_offset(TC1, TC2, TC3, TC4, TC5, pwm):
 
     globals.log('info', 'Temperature Calibration - Average edge temperature: {}, Inside temperature: {}, Temperature offset set at: {}'.format(outside_temp_average, TC5_temp, temperature_offset))
 
+    globals.calibrate_temperature = False
+
     return temperature_offset
 
 def set_fan_speed(pwm, fan_speed):
