@@ -52,6 +52,7 @@ def initialize_globals():
     global stop_threads
     global lid_open
     global calibrate_temperature
+    global temperature_offset
 
     target_barrel_temp = 120
     target_meat_temp = 80
@@ -70,6 +71,7 @@ def initialize_globals():
     stop_threads = False
     lid_open = False
     calibrate_temperature = False
+    temperature_offset = 10
 
 load_config()
 load_recipes()

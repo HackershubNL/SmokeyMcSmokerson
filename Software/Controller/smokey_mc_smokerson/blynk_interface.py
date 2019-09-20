@@ -59,6 +59,7 @@ manual_pid_kd_vpin = config['blynk']['vpins']['manual_pid_kd']['pin']
 pid_profile_override_vpin = config['blynk']['vpins']['pid_profile_override']['pin']
 system_shutdown_vpin = config['blynk']['vpins']['system_shutdown']['pin']
 calibrate_temperature_vpin = config['blynk']['vpins']['calibrate_temperature']['pin']
+temperature_offset_vpin = config['blynk']['vpins']['temperature_offset']['pin']
 
 def strfdelta(tdelta, fmt):
     d = {"days": tdelta.days}
@@ -82,6 +83,7 @@ def update_ui():
     blynk.virtual_write(current_pid_kd_vpin, globals.current_pid_kd)
     blynk.virtual_write(current_pid_profile_vpin, globals.current_pid_profile)
     blynk.virtual_write(current_temp_gap_vpin, int(globals.current_temp_gap))
+    blynk.virtual_write(temperature_offset_vpin, globals.temperature_offset)
 
     if (cooking_end):
         time_delta = cooking_end - datetime.now()

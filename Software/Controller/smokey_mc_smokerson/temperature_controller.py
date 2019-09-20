@@ -231,7 +231,7 @@ def run_temperature_controller():
             TC5_temp += 0.01
 
         #Calculations
-        temp_weighted_avg = ((TC1_temp + TC2_temp + TC3_temp + TC4_temp) / 4) + temperature_offset # + 45 From SmokeyTheBarrel: temperature compensation between outside and center of the barrel
+        temp_weighted_avg = ((TC1_temp + TC2_temp + TC3_temp + TC4_temp) / 4) + globals.temperature_offset # + 45 From SmokeyTheBarrel: temperature compensation between outside and center of the barrel
         temp_weighted_avg_last = (2 * temp_weighted_avg_last + temp_weighted_avg) / 3
         globals.current_barrel_temp = temp_weighted_avg_last
         temperature_gap = globals.target_barrel_temp - temp_weighted_avg_last
@@ -276,7 +276,7 @@ def run_temperature_controller():
             pid.auto_mode = False
 
             #run the calibrate function
-            temperature_offset = calibrate_temperature_offset(TC1, TC2, TC3, TC4, TC5, pwm)
+            globals.temperature_offset = calibrate_temperature_offset(TC1, TC2, TC3, TC4, TC5, pwm)
 
             #reenable the pid
             pid.auto_mode = True
